@@ -1,0 +1,314 @@
+/* Variáveis de Cores */
+:root {
+    --cor-fundo: #000000; /* Preto */
+    --cor-primaria: #ffd900; /* Dourado */
+    --cor-texto: #FFFFFF; /* Branco */
+    --cor-texto-secundario: #AAAAAA;
+    --cor-botao-ocupado: #333333;
+}
+
+/* Reset Básico e Estilos Globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header (Cabeçalho) */
+.header {
+    background-color: #1a1a1a;
+    padding: 15px 0;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.logo-img {
+    max-width: 180px; /* Ajuste conforme o tamanho da sua logo */
+    height: auto;
+    filter: drop-shadow(0 0 5px var(--cor-primaria));
+}
+
+/* Main Content (Conteúdo Principal) */
+.container {
+    flex-grow: 1;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto 70px auto; /* 70px para dar espaço ao rodapé fixo */
+    text-align: center;
+}
+
+h1 {
+    color: var(--cor-primaria);
+    margin-bottom: 25px;
+    font-size: 2em;
+}
+
+/* Grid de Horários */
+
+/* Container de Dias */
+.dias-container {
+    display: flex;
+    overflow-x: auto; /* Permite rolar em telas pequenas */
+    padding-bottom: 15px; /* Espaço para sombra/scrollbar */
+    margin-bottom: 25px;
+    gap: 10px;
+    justify-content: flex-start; /* Alinha o início na esquerda */
+}
+
+/* Estilo Básico do Botão de Dia */
+.btn-dia {
+    flex-shrink: 0; /* Impede que os botões diminuam em telas pequenas */
+    background-color: var(--cor-texto-secundario);
+    color: var(--cor-fundo);
+    padding: 10px 15px;
+    border: 1px solid var(--cor-texto-secundario);
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+    transition: background-color 0.2s, border 0.2s;
+    min-width: 100px; /* Largura mínima para melhor visualização */
+}
+
+.btn-dia:hover {
+    background-color: #555555;
+}
+
+/* Estilo do Dia Selecionado */
+.btn-dia.selecionado-dia {
+    background-color: var(--cor-primaria);
+    color: var(--cor-fundo);
+    border: 1px solid var(--cor-texto);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+/* Estilo dos textos internos do botão de dia */
+.btn-dia span {
+    display: block;
+    font-size: 0.9em;
+}
+
+.btn-dia .dia-mes {
+    font-size: 1.2em;
+}
+
+.horarios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Responsivo */
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.btn-horario {
+    background-color: var(--cor-texto-secundario);
+    color: var(--cor-fundo);
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.2s, transform 0.2s;
+    border: 1px solid transparent;
+}
+
+.btn-horario:hover:not(:disabled) {
+    background-color: var(--cor-primaria);
+    transform: translateY(-2px);
+}
+
+/* Horário Selecionado */
+.btn-horario.selecionado {
+    background-color: var(--cor-primaria);
+    color: var(--cor-fundo);
+    border: 2px solid var(--cor-texto);
+}
+
+/* Horário Ocupado (Não Clicável) */
+.btn-horario:disabled {
+    background-color: var(--cor-botao-ocupado);
+    color: var(--cor-texto-secundario);
+    cursor: not-allowed;
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+/* Detalhes do Agendamento (Formulário) */
+.agendamento-info {
+    background-color: #1a1a1a;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+    text-align: left;
+}
+
+.agendamento-info h2 {
+    color: var(--cor-primaria);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#horario-selecionado {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+#form-agendamento label {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    color: var(--cor-texto);
+}
+
+#form-agendamento input,
+#form-agendamento select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid var(--cor-texto-secundario);
+    border-radius: 5px;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    font-size: 1em;
+}
+
+#form-agendamento select option {
+    background-color: #1a1a1a;
+}
+
+/* Botão Confirmar */
+#btn-confirmar {
+    background-color: var(--cor-primaria);
+    color: var(--cor-fundo);
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 10px;
+    transition: opacity 0.2s;
+}
+
+#btn-confirmar:disabled {
+    background-color: var(--cor-botao-ocupado);
+    color: var(--cor-texto-secundario);
+    cursor: not-allowed;
+}
+
+/* Footer (Rodapé Fixo) */
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #1a1a1a;
+    color: var(--cor-texto-secundario);
+    text-align: center;
+    padding: 10px 0;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.5);
+    font-size: 0.9em;
+}
+
+/* Media Query para Responsividade em dispositivos de até 600px de largura (celulares) */
+@media (max-width: 700px  ) {
+/* Previne a rolagem horizontal no corpo da página */
+body {
+    overflow-x: hidden; 
+    /* Garante que o body ocupe 100% da largura da tela */
+    width: 100%; 
+    /* Adicionalmente, sempre use essa meta tag no <head> do HTML */
+    /* <meta name="viewport" content="width=device-width, initial-scale=1.0"> */
+}
+
+    /* Ajustes Gerais do Container */
+    .container {
+        padding: 8px;
+        margin: 10px auto 70px auto; /* Mantém espaço para o rodapé */
+        /* Garante que o conteúdo não ultrapasse o limite da tela */
+        min-width: 0; 
+    }
+
+    main {
+        width: 100%;
+    }
+
+    header, img {
+        width: 100%;
+    }
+
+    /* Redução do tamanho da fonte e títulos */
+    h1 {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+    }
+    
+    .agendamento-info h2 {
+        font-size: 1.3em;
+    }
+    
+    /* Layout do Container de Dias */
+    .dias-container {
+        /* Garante que o scroll horizontal funcione bem */
+        display: flex;
+        overflow-x: scroll; /* Scroll horizontal habilitado */
+        -webkit-overflow-scrolling: touch; /* Suaviza o scroll no iOS */
+        padding-bottom: 8px; /* Mais espaço para o scrollbar ou sombra */
+        justify-content: flex-start;
+    }
+
+    /* Botão de Dia */
+    .btn-dia {
+        min-width: 70px; /* Reduz ligeiramente a largura mínima */
+        padding: 8px 4px;
+        border-radius: 6px;
+    }
+
+    /* Layout do Grid de Horários */
+    .horarios-grid {
+        /* Permite que o grid se ajuste a 3 colunas em telas muito pequenas, ou mais se couber */
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); 
+        gap: 8px; /* Reduz o espaçamento entre botões */
+    }
+
+    /* Botões de Horário */
+    .btn-horario {
+        padding: 8px 10px;
+        font-size: 0.9em;
+    }
+    
+    /* Formulário e Botão de Confirmação */
+    #form-agendamento input,
+    #form-agendamento select,
+    #btn-confirmar {
+        font-size: 1em; /* Garante que os campos não fiquem muito grandes */
+        padding: 10px;
+    }
+
+    /* Logo no Header */
+    .logo-img {
+        max-width: 150px; /* Reduz o tamanho da logo para não ocupar muito espaço */
+    }
+
+    h1 {
+        text-align: center;
+    }
+}
+
+/* Regra Adicional para prevenir cortes em telas MUITO pequenas (ex: 320px de largura) */
+@media (max-width: 310px) {
+    .horarios-grid {
+        /* Força no máximo 3 colunas em telas minúsculas */
+        grid-template-columns: repeat(3, 1fr); 
+    }
+}

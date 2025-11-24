@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento | Barbearia Elegance</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <header class="header">
+        <img src="logo.png" alt="Logo da Barbearia" class="logo-img">
+    </header>
+
+    
+
+    <main class="container">
+        <h1>Selecione um Dia e Horário</h1>
+
+        <div id="dias-container" class="dias-container">
+            </div>
+
+        <div id="horarios-grid" class="horarios-grid">
+            </div>
+        
+        <div id="agendamento-info" class="agendamento-info">
+        <h1>Selecione um Horário</h1>
+        <div id="horarios-grid" class="horarios-grid">
+            </div>
+        
+        <div id="agendamento-info" class="agendamento-info">
+            <h2>Detalhes do Agendamento</h2>
+            <p id="horario-selecionado">Horário: *Nenhum selecionado*</p>
+            <form id="form-agendamento">
+                <label for="nome">Seu Nome:</label>
+                <input type="text" id="nome" required placeholder="Ex: João Silva">
+                <label for="servico">Serviço:</label>
+                <select id="servico" required>
+                    <option value="" disabled selected>Escolha o Serviço</option>
+                    <option value="Corte de Cabelo">Corte de Cabelo</option>
+                    <option value="Barba">Barba</option>
+                    <option value="Corte + Barba">Corte + Barba</option>
+                </select>
+                <button type="submit" id="btn-confirmar" disabled>Confirmar e Enviar para WhatsApp</button>
+            </form>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Barbearia Elegance. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
